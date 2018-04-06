@@ -79,7 +79,7 @@ namespace ReviewBot
                 payload = state.Sb.Append(Encoding.ASCII.GetString(state.Buf, 0, bytesRead)).ToString();
                 if (payload.Contains("<EOF>"))
                 {
-                    Program.Bot.Queue(payload);
+                    //Program.Bot.Queue(payload);
                 }
                 else
                 {

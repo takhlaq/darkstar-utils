@@ -44,7 +44,6 @@ namespace ReviewBot
 
         static void Main(string[] args)
         {
-            Bot = new Bot("DankStar");
             ParseArguments(args);
 
             short port = ListenPort != 0 ? ListenPort : (short)8765;

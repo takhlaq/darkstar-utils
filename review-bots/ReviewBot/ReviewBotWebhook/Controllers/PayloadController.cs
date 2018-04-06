@@ -11,6 +11,7 @@ namespace ReviewBotWebhook.Controllers
     [Route("payload")]
     public class PayloadController : Controller
     {
+        ReviewBot.Bot Bot = new ReviewBot.Bot();
         [HttpPost]
         public async Task<HttpResponseMessage> Post()
         {
@@ -22,7 +23,10 @@ namespace ReviewBotWebhook.Controllers
                     var payload = new Octokit.Internal.SimpleJsonSerializer().Deserialize<PullRequestEventPayload>(json);
                     if (payload?.PullRequest?.State == ItemState.Open)
                     {
-                        // run review bot code here
+                        lock (Bot)
+                        {
+                            Bot.Queue(payload);
+                        }
                     }
                 }
             }

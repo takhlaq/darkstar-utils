@@ -18,8 +18,8 @@
     },
     "ReviewBotWebhook": {
       "commandName": "Project",
+      "workingDirectory": "$(ProjectDir)..\\bin\\netcoreapp2.0\\",
       "launchBrowser": true,
-      "launchUrl": "api/values",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
